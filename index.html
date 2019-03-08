@@ -9,6 +9,7 @@
   <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
   <script src="https://dreamincodeforlife.github.io/nicolocarpignoli.github.io/ar-playground/events.js"></script>
   <script src="https://dreamincodeforlife.github.io/nicolocarpignoli.github.io/ar-playground/calibration.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;' crossorigin="anonymous">
@@ -31,20 +32,41 @@
     var dic = "";
     scanner = new Instascan.Scanner({mirror: false});
     scanner.addListener('scan', function (content) {
-      console.log(JSON.parse(content));
-      var a = JSON.parse(content);
-      if (a != dic){
-        dic = a;
-        for (i = 0; i < a["img"].length; i++) {
+      var json_url = content;
+      console.log(json_url);
+      console.log(typeof(json_url))
+      var obj = {
+        "key": "value",
+        "key2": "value2"
+      };
+      var data = JSON.stringify(obj);
+      var json = "";
+      $(document).ready(function(){
+        $.ajax({
+            url: json_url,
+            type: "GET",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                json = JSON.stringify(data);
+            }
+        });
+      });
+      console.log(json);
+      console.log(data);
+      if (data != dic){
+        dic =data;
+        for (i = 0; i < data ["img"].length; i++) {
           var iDiv = document.createElement("img");
-          iDiv.id = a["img"][i]["id"];
-          iDiv.src = a["img"][i]["url"];
+          iDiv.id =data["img"][i]["id"];
+          iDiv.src =data["img"][i]["url"];
           iDiv.crossOrigin = "anonymous";
           document.getElementsByTagName('a-assets')[0].appendChild(iDiv);
           var position_vec = '2.5 0 ' +(-3 + (1.5*i))
           console.log(position_vec);
           var temp = document.getElementsByTagName('a-marker')[0];
-          temp.innerHTML += '<a-image id="animated-model' + (i+1)+ '" url=' + a["img"][i]["url"] + '  scale="1" position="'+position_vec +'" rotation="-90 0 0" crossOrigin="anonymous" width="1" height="1" src=' + "#" + a["img"][i]["id"] + '></a-image>';
+          temp.innerHTML += '<a-image id="animated-model' + (i+1)+ '" url=' +data["img"][i]["url"] + '  scale="1" position="'+position_vec +'" rotation="-90 0 0" crossOrigin="anonymous" width="1" height="1" src=' + "#" +data["img"][i]["id"] + '></a-image>';
         }
       }
     });
