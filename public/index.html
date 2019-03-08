@@ -1,0 +1,66 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script src="https://prasannaboga.github.io/demo_arjs02/javascripts/instascan.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://dreamincodeforlife.github.io/nicolocarpignoli.github.io/ar-playground/events.js"></script>
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
+        <a-assets>
+            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>
+
+        </a-marker>
+
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+    <script>
+    try {
+
+    scanner = new Instascan.Scanner({mirror: false});
+    scanner.addListener('scan', function (content) {
+      console.log(JSON.parse(content));
+      var a = JSON.parse(content);
+      for (i = 0; i < a["img"].length; i++) {
+        var iDiv = document.createElement("img");
+        iDiv.id = a["img"][i]["id"];
+        iDiv.src = a["img"][i]["url"];
+        document.getElementsByTagName('a-assets')[0].appendChild(iDiv);
+        var iDiv2 = document.createElement("a-image");
+        iDiv2.id = "animated-model"+(i+1);
+        iDiv2.url = a["img"][i]["url"];
+        iDiv2.scale = "1";
+        iDiv2.position = "2.5 0 "+(-3*i);
+        iDiv2.rotation = "-90 0 0";
+        iDiv2.width = "1";
+        iDiv2.height = "1";
+        iDiv2.src = "#" + a["img"][i]["id"];
+        document.getElementsByTagName('a-marker')[0].appendChild(iDiv);
+  }
+    });
+
+    Instascan.Camera.getCameras().then(function (cameras) {
+      if (cameras.length > 0) {
+        scanner.start(cameras[0]);
+      } else {
+        alert('No cameras found.');
+      }
+    }).catch(function (err) {
+      alert(err);
+    });
+
+  } catch (err) {
+    alert(err);
+  }
+  </script>
+</html>
