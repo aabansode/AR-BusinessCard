@@ -50,30 +50,30 @@
             dataType: "json",
             success: function (data, textStatus, jqXHR) {
                 json = JSON.stringify(data);
-                console.log("json read");
+                console.log(json);
+                console.log(data);
+                data = JSON.parse(json);
+                if (data != dic){
+                  dic =data;
+                  for (i = 0; i < data ["img"].length; i++) {
+                    var iDiv = document.createElement("img");
+                    iDiv.id =data["img"][i]["id"];
+                    iDiv.src =data["img"][i]["url"];
+                    iDiv.crossOrigin = "anonymous";
+                    document.getElementsByTagName('a-assets')[0].appendChild(iDiv);
+                    var position_vec = '2.5 0 ' +(-3 + (1.5*i))
+                    console.log(position_vec);
+                    var temp = document.getElementsByTagName('a-marker')[0];
+                    temp.innerHTML += '<a-image id="animated-model' + (i+1)+ '" url=' +data["img"][i]["url"] + '  scale="1" position="'+position_vec +'" rotation="-90 0 0" crossOrigin="anonymous" width="1" height="1" src=' + "#" +data["img"][i]["id"] + '></a-image>';
+                  }
+                }
+
             },
             error: function(result){
                 console.log(result);
             }
         });
       });
-      console.log(json);
-      console.log(data);
-      data = JSON.parse(json);
-      if (data != dic){
-        dic =data;
-        for (i = 0; i < data ["img"].length; i++) {
-          var iDiv = document.createElement("img");
-          iDiv.id =data["img"][i]["id"];
-          iDiv.src =data["img"][i]["url"];
-          iDiv.crossOrigin = "anonymous";
-          document.getElementsByTagName('a-assets')[0].appendChild(iDiv);
-          var position_vec = '2.5 0 ' +(-3 + (1.5*i))
-          console.log(position_vec);
-          var temp = document.getElementsByTagName('a-marker')[0];
-          temp.innerHTML += '<a-image id="animated-model' + (i+1)+ '" url=' +data["img"][i]["url"] + '  scale="1" position="'+position_vec +'" rotation="-90 0 0" crossOrigin="anonymous" width="1" height="1" src=' + "#" +data["img"][i]["id"] + '></a-image>';
-        }
-      }
     });
 
     Instascan.Camera.getCameras().then(function (cameras) {
