@@ -57,8 +57,8 @@
                   dic =data;
                   for (i = 0; i < data ["img"].length; i++) {
                     var iDiv = document.createElement("img");
-                    iDiv.id =data["img"][i]["id"];
-                    iDiv.src =data["img"][i]["url"];
+                    iDiv.id = data["img"][i]["id"];
+                    iDiv.src =data["img"][i]["src"];
                     iDiv.crossOrigin = "anonymous";
                     document.getElementsByTagName('a-assets')[0].appendChild(iDiv);
                     var position_vec = '2.5 0 ' +(-3 + (1.5*i))
