@@ -53,9 +53,8 @@
                 console.log(json);
                 console.log(data);
                 data = JSON.parse(json);
-                console.log(dic);
                 if (data != dic){
-                  dic = data;
+                  dic =data;
                   for (i = 0; i < data ["img"].length; i++) {
                     var iDiv = document.createElement("img");
                     iDiv.id = data["img"][i]["id"];
