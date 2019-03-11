@@ -53,6 +53,10 @@
                 console.log(data);
                 if (JSON.stringify(data) != JSON.stringify(dic)){
                   dic = data;
+                  var remove_ = document.getElementsByTagName('a-image');
+                  $(remove_).remove();
+                  remove_ = a = document.getElementsByTagName('img');
+                  $(remove_).remove();
                   for (i = 0; i < data ["img"].length; i++) {
                     var iDiv = document.createElement("img");
                     iDiv.id = data["img"][i]["id"];
