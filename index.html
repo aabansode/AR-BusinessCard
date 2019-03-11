@@ -51,7 +51,7 @@
                 data = JSON.parse(json);
                 console.log(dic);
                 console.log(data);
-                if (data != dic){
+                if (JSON.stringify(data) != JSON.stringify(dic)){
                   dic = data;
                   for (i = 0; i < data ["img"].length; i++) {
                     var iDiv = document.createElement("img");
