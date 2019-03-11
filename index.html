@@ -33,8 +33,6 @@
     scanner = new Instascan.Scanner({mirror: false});
     scanner.addListener('scan', function (content) {
       var json_url = content;
-      console.log(json_url);
-      console.log(typeof(json_url))
       var obj = {
         "key": "value",
         "key2": "value2"
@@ -58,11 +56,10 @@
                   for (i = 0; i < data ["img"].length; i++) {
                     var iDiv = document.createElement("img");
                     iDiv.id = data["img"][i]["id"];
-                    iDiv.src =data["img"][i]["src"];
+                    iDiv.src = data["img"][i]["src"];
                     iDiv.crossOrigin = "anonymous";
                     document.getElementsByTagName('a-assets')[0].appendChild(iDiv);
                     var position_vec = '2.5 0 ' +(-3 + (1.5*i))
-                    console.log(position_vec);
                     var temp = document.getElementsByTagName('a-marker')[0];
                     temp.innerHTML += '<a-image id="animated-model' + (i+1)+ '" url=' +data["img"][i]["url"] + '  scale="1" position="'+position_vec +'" rotation="-90 0 0" crossOrigin="anonymous" width="1" height="1" src=' + "#" +data["img"][i]["id"] + '></a-image>';
                   }
