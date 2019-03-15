@@ -73,4 +73,4 @@ function handleError(error) {
   console.log("navigator.getUserMedia error: ", error);
 }
 
-start();
+//start();
