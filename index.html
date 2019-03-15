@@ -77,5 +77,24 @@
       });
     });
 
+    Instascan.Camera.getCameras().then(function (cameras) {
+      if (cameras.length > 0) {
+        if (cameras.length > 1){
+          scanner.start(cameras[cameras.length - 1]);
+        }
+        else{
+          scanner.start(cameras[0]);
+        }
+      }
+       else {
+        alert('No cameras found.');
+      }
+    }).catch(function (err) {
+      alert(err);
+    });
+
+  } catch (err) {
+    alert(err);
+  }
   </script>
 </html>
