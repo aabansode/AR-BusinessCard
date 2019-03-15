@@ -12,7 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <div class="select" style = "position:relative; left:10px; top:250px">
+        <div class="select" style = "position:relative; left:80px; top:2px">
           <label for="videoSource">Select Camera: </label><select id="videoSource"></select>
         </div>
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;' crossorigin="anonymous">
@@ -100,14 +100,11 @@
     }
 
     videoSelect.onchange = start;
-
     function handleError(error) {
       console.log("navigator.getUserMedia error: ", error);
     }
 
     start();
-    </script>
-    <script>
     try {
 
     var dic = "";
