@@ -1,81 +1,68 @@
-<h1>git_math_done: <em>AR-BusinessCard Generator</em></h1>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/566/758/datas/gallery.jpg"></br>
-<sup><em>f1: Working example of the text speech to latex converted function which has been graphed.</em></sup>
+## Available Scripts
 
-by: Aman Adhav <a href="https://linkedin.com/in/amanadhav"><img src="https://raw.githubusercontent.com/jrobchin/phormatics/master/screenshots/linkedin.png" height="20px"></a> <a href="https://github.com/dreamincodeforlife"><img src="https://raw.githubusercontent.com/jrobchin/phormatics/master/screenshots/github.png" height="20px"></a>
+In the project directory, you can run:
 
-[HackPrinceton Fall 2017](https://hackprinceton.com/) project developed in 36 hours, focusing on using A.I. and NLP to build a speech to latex converter for Mathematics/Physics Lectures.
+### `npm start`
 
-This project was the runner up for "Best Use of Azure Services" as awarded by [Microsoft](https://azure.microsoft.com/en-ca/). 
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Flask API:
-This app runs as an API built with Flask and PyTorch. Because of Microsoft's key interest in this idea I am unable to add my complete code to this GitHub repo. Key word analyses and graph generation & estimation is performed by the [Flask](http://flask.pocoo.org/) API. To make it short and sweet, Git_Math_Done is a translation tool that converts plain English Speech Input into readable Latex text. It incorporates algorithms that find specific mathematical symbols/terminology and converts it to Latex. Ex: Speech Input : ("Limit of X approaches 0"), Latex Text Output : {$\lim_{x\to\0}
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-The application reads in the speech input and tries to finds any functions/equations/mathematical terminology in the speech input stream. Once it finds possible matches, it converts parts of the string into Latex. Once the entire speech input stream has been parsed, the data is stored in a text file, the contents of the file can be copied into Microsoft Word or other applications that support Latex. 
+### `npm test`
 
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Currently Supported Functions:
+### `npm run build`
 
-- Graph: *Graphing a function only there was a function called previously*
-- Basic Mathematics Operators: *Derivative of x^3 + 4x^2 -2*
-- Calculating Answer to a Question with full steps: *Solution powered by Wolfram's API*
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Usage:
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-You'll need a few things:
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-* [Python 3.5.0+](https://www.python.org/downloads/)
-* [NGROK](https://ngrok.com/), to run our Microsoft API an AZURE Key ([AZure](https://azure.microsoft.com/en-ca/))
-* [Git](https://git-scm.com/), to clone this repository
-* A Browser, to view the website of course!
+### `npm run eject`
 
-First we must install Microsoft Client Via pip. We assume that you have Git, Python, and NGROK installed. If you don't, please visit the links above to install them.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-First, clone the git repository:
-```
-$ git clone https://github.com/dreamInCoDeforlife/git_math_done.git
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Then, cd into the repository:
-```
-$ cd git_math_done
-```
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Install all dependencies inside requirements.txt file for python:
-```
-$ pip install requirements.txt
-```
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Now let's initialize the flask application:
-```
-$ python demo.py
-```
+## Learn More
 
-After that, you should get a response that looks something like this:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-```
-$ FLASK_APP=demoo.py flask run
- * Running on http://localhost:5000/
-```
-Now we can turn this private local API public with NGROK:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```
-$ ngrok https 5000
-ngrok by @inconshreveable                                                                               (Ctrl+C to quit)
+### Code Splitting
 
-Session Status                online
-Session Expires               7 hours, 59 minutes
-Version                       2.2.8
-Region                        United States (us)
-Web Interface                 http://127.0.0.1:4040
-Forwarding                    http://58a205b8.ngrok.io -> localhost:5000
-Forwarding                    https://58a205b8.ngrok.io -> localhost:5000
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-Connections                   ttl     opn     rt1     rt5     p50     p90
-                              0       0       0.00    0.00    0.00    0.00
-```
-Note : The url address changes every 7 hours.
+### Analyzing the Bundle Size
 
-Now via browser setup a connection endpoint that sends converted speech as text value via POST request (Node.JS works great with this).
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
