@@ -5,60 +5,45 @@
 
 by: Aman Adhav <a href="https://linkedin.com/in/amanadhav"><img src="https://raw.githubusercontent.com/jrobchin/phormatics/master/screenshots/linkedin.png" height="20px"></a> <a href="https://github.com/dreamincodeforlife"><img src="https://raw.githubusercontent.com/jrobchin/phormatics/master/screenshots/github.png" height="20px"></a>
 
-[HackPrinceton Fall 2017](https://hackprinceton.com/) project developed in 36 hours, focusing on using A.I. and NLP to build a speech to latex converter for Mathematics/Physics Lectures.
+### Getting Started : 
 
-### Flask API:
-This app runs as an API built with Flask and PyTorch. Because of Microsoft's key interest in this idea I am unable to add my complete code to this GitHub repo. Key word analyses and graph generation & estimation is performed by the [Flask](http://flask.pocoo.org/) API. To make it short and sweet, Git_Math_Done is a translation tool that converts plain English Speech Input into readable Latex text. It incorporates algorithms that find specific mathematical symbols/terminology and converts it to Latex. Ex: Speech Input : ("Limit of X approaches 0"), Latex Text Output : {$\lim_{x\to\0}
+To create your Custom mark go to the following link and fill out the form. There is a share button you can use to save the form if needed. 
+If you feel you are happy with the information provided then click submit button to generate your QR code
 
-The application reads in the speech input and tries to finds any functions/equations/mathematical terminology in the speech input stream. Once it finds possible matches, it converts parts of the string into Latex. Once the entire speech input stream has been parsed, the data is stored in a text file, the contents of the file can be copied into Microsoft Word or other applications that support Latex. 
+Save the QR code on your system and you can now start sharing and using the custom QR code.
 
 
-### Currently Supported Functions:
+### Disclamer : 
 
-- Graph: *Graphing a function only there was a function called previously*
-- Basic Mathematics Operators: *Derivative of x^3 + 4x^2 -2*
-- Calculating Answer to a Question with full steps: *Solution powered by Wolfram's API*
+We are using myjson to save your information. Please review their community guidelines before procceding with using or development.
 
-### Usage:
+Development : 
 
-You'll need a few things:
+### `npm start`
 
-* [Python 3.5.0+](https://www.python.org/downloads/)
-* [NGROK](https://ngrok.com/), to run our Microsoft API an AZURE Key ([AZure](https://azure.microsoft.com/en-ca/))
-* [Git](https://git-scm.com/), to clone this repository
-* A Browser, to view the website of course!
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-First we must install Microsoft Client Via pip. We assume that you have Git, Python, and NGROK installed. If you don't, please visit the links above to install them.
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-First, clone the git repository:
-```
-$ git clone https://github.com/dreamInCoDeforlife/git_math_done.git
-```
+### `npm test`
 
-Then, cd into the repository:
-```
-$ cd git_math_done
-```
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Install all dependencies inside requirements.txt file for python:
-```
-$ pip install requirements.txt
-```
+### `npm run build`
 
-Now let's initialize the flask application:
-```
-$ python demo.py
-```
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-After that, you should get a response that looks something like this:
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-```
-$ FLASK_APP=demoo.py flask run
- * Running on http://localhost:5000/
-```
-Now we can turn this private local API public with NGROK:
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```
+
+
 $ ngrok https 5000
 ngrok by @inconshreveable                                                                               (Ctrl+C to quit)
 
