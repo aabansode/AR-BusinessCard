@@ -7,8 +7,11 @@ by: Aman Adhav <a href="https://linkedin.com/in/amanadhav"><img src="https://raw
 
 ### Getting Started : 
 
-To create your Custom mark go to the following link and fill out the form. There is a share button you can use to save the form if needed. 
+To create your Custom mark go to the following [link](https://dreamincodeforlife.github.io/AR-Form/) and fill out the form. There is a share button you can use to save the form if needed.
+
 If you feel you are happy with the information provided then click submit button to generate your QR code
+
+<img src="https://dreamincodeforlife.github.io/AR-BusinessCard/ezgif.com-video-to-gif.gif"></br>
 
 Save the QR code on your system and you can now start sharing and using the custom QR code.
 
