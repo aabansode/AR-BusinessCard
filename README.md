@@ -20,8 +20,6 @@ Save the QR code on your system and you can now start sharing and using the cust
 
 We are using myjson to save your information. Please review their community guidelines before procceding with using or development.
 
-Development : 
-
 ### `npm start`
 
 Runs the app in the development mode.<br>
